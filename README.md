@@ -1,33 +1,69 @@
-# Vibration Fixed
+# 🔥 Vibration Fixed
 
-A fixed and improved Flutter plugin for handling Vibration API on iOS, Android, web and OpenHarmony.
+<div align="center">
 
 [![pub package](https://img.shields.io/pub/v/vibration_fixed.svg)](https://pub.dev/packages/vibration_fixed)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
+[![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS%20%7C%20Web%20%7C%20OpenHarmony-blue)](https://flutter.dev)
 
-## Features
+**A fixed and enhanced Flutter plugin for handling Vibration API across all platforms**
 
-- ✅ **Cross-platform support**: iOS, Android, Web, and OpenHarmony
-- ✅ **Simple API**: Easy-to-use vibration methods
-- ✅ **Custom patterns**: Support for custom vibration patterns and intensities
-- ✅ **Amplitude control**: Control vibration strength (Android)
-- ✅ **Haptic feedback**: iOS haptic feedback support
-- ✅ **Preset patterns**: Pre-defined vibration patterns for common use cases
-- ✅ **Device capability detection**: Check if device supports vibration features
-- ✅ **Fixed issues**: Resolves common problems from the original vibration plugin
+[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [💡 Examples](#-examples) • [🔧 API Reference](#-api-reference) • [🤝 Contributing](#-contributing)
 
-## Installation
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 **Core Features**
+- ✅ **Cross-platform support** - iOS, Android, Web, OpenHarmony
+- ✅ **Simple API** - Easy-to-use vibration methods
+- ✅ **Custom patterns** - Support for complex vibration patterns
+- ✅ **Amplitude control** - Control vibration strength (Android)
+- ✅ **Haptic feedback** - iOS haptic feedback integration
+- ✅ **Preset patterns** - Pre-defined patterns for common use cases
+- ✅ **Device detection** - Check device vibration capabilities
+- ✅ **Error handling** - Robust error handling and fallbacks
+
+</td>
+<td width="50%">
+
+### 🛠️ **What's Fixed**
+- 🔧 **Improved error handling** - Better exception handling
+- 🔧 **Enhanced iOS support** - Better haptic feedback
+- 🔧 **Web compatibility** - Improved web vibration API
+- 🔧 **Android optimization** - Better vibrator management
+- 🔧 **Documentation** - Comprehensive docs and examples
+- 🔧 **Package naming** - Clear, descriptive names
+- 🔧 **Dependencies** - Updated to latest versions
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
+
+### Installation
 
 Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vibration_fixed: ^3.1.4
+  vibration_fixed: ^4.0.0
 ```
 
-### Platform-specific setup
+### Platform Setup
 
-#### Android
+<details>
+<summary><strong>📱 Android Setup</strong></summary>
 
 Add the following permission to your `android/app/src/main/AndroidManifest.xml`:
 
@@ -35,15 +71,25 @@ Add the following permission to your `android/app/src/main/AndroidManifest.xml`:
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
-#### iOS
+</details>
 
-No additional setup required. The plugin uses the native iOS haptic feedback system.
+<details>
+<summary><strong>🍎 iOS Setup</strong></summary>
 
-#### Web
+No additional setup required! The plugin uses the native iOS haptic feedback system.
 
-No additional setup required. The plugin uses the Web Vibration API.
+</details>
 
-## Usage
+<details>
+<summary><strong>🌐 Web Setup</strong></summary>
+
+No additional setup required! The plugin uses the Web Vibration API.
+
+</details>
+
+---
+
+## 💡 Examples
 
 ### Basic Vibration
 
@@ -106,88 +152,215 @@ await Vibration.vibrate(duration: 10000);
 await Vibration.cancel();
 ```
 
-## API Reference
+---
+
+## 🔧 API Reference
 
 ### Vibration Class
 
 #### Static Methods
 
-- `Future<bool> hasVibrator()` - Check if device has vibrator
-- `Future<bool> hasAmplitudeControl()` - Check if device supports amplitude control
-- `Future<bool> hasCustomVibrationsSupport()` - Check if device supports custom vibrations
-- `Future<void> vibrate({...})` - Vibrate with specified parameters
-- `Future<void> cancel()` - Cancel ongoing vibration
+| Method | Description | Returns |
+|--------|-------------|---------|
+| `hasVibrator()` | Check if device has vibrator | `Future<bool>` |
+| `hasAmplitudeControl()` | Check if device supports amplitude control | `Future<bool>` |
+| `hasCustomVibrationsSupport()` | Check if device supports custom vibrations | `Future<bool>` |
+| `vibrate({...})` | Vibrate with specified parameters | `Future<void>` |
+| `cancel()` | Cancel ongoing vibration | `Future<void>` |
 
 #### Vibration Parameters
 
-- `int duration` - Vibration duration in milliseconds (default: 500)
-- `List<int> pattern` - Custom vibration pattern
-- `int repeat` - Number of times to repeat pattern (-1 for infinite)
-- `List<int> intensities` - Intensity values for pattern (iOS)
-- `int amplitude` - Vibration amplitude 1-255 (Android)
-- `double sharpness` - Vibration sharpness 0.0-1.0 (iOS)
-- `VibrationPreset? preset` - Use predefined pattern
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `duration` | `int` | Vibration duration in milliseconds | `500` |
+| `pattern` | `List<int>` | Custom vibration pattern | `[]` |
+| `repeat` | `int` | Number of times to repeat pattern (-1 for infinite) | `-1` |
+| `intensities` | `List<int>` | Intensity values for pattern (iOS) | `[]` |
+| `amplitude` | `int` | Vibration amplitude 1-255 (Android) | `-1` |
+| `sharpness` | `double` | Vibration sharpness 0.0-1.0 (iOS) | `0.5` |
+| `preset` | `VibrationPreset?` | Use predefined pattern | `null` |
 
 ### VibrationPreset Enum
 
-- `VibrationPreset.quickSuccessAlert`
-- `VibrationPreset.lightImpact`
-- `VibrationPreset.mediumImpact`
-- `VibrationPreset.heavyImpact`
-- `VibrationPreset.selectionClick`
-- `VibrationPreset.notificationSuccess`
-- `VibrationPreset.notificationWarning`
-- `VibrationPreset.notificationError`
+<details>
+<summary><strong>📋 Available Presets</strong></summary>
 
-## Platform Support
+| Preset | Description | Use Case |
+|--------|-------------|----------|
+| `quickSuccessAlert` | Quick success notification | Success feedback |
+| `lightImpact` | Light haptic impact | UI interactions |
+| `mediumImpact` | Medium haptic impact | Important actions |
+| `heavyImpact` | Heavy haptic impact | Critical actions |
+| `selectionClick` | Selection click feedback | Button presses |
+| `notificationSuccess` | Success notification | App notifications |
+| `notificationWarning` | Warning notification | Warning alerts |
+| `notificationError` | Error notification | Error alerts |
+| `singleShortBuzz` | Single short buzz | Simple alerts |
+| `doubleBuzz` | Double buzz pattern | Double confirmation |
+| `tripleBuzz` | Triple buzz pattern | Triple confirmation |
+| `longAlarmBuzz` | Long alarm buzz | Alarms |
+| `pulseWave` | Pulse wave pattern | Heartbeat simulation |
+| `progressiveBuzz` | Progressive buzz | Countdown timers |
+| `rhythmicBuzz` | Rhythmic pattern | Music sync |
+| `gentleReminder` | Gentle reminder | Soft notifications |
+| `zigZagAlert` | Zig-zag pattern | Attention grabbing |
+| `softPulse` | Soft pulse | Subtle feedback |
+| `emergencyAlert` | Emergency alert | Critical alerts |
+| `heartbeatVibration` | Heartbeat pattern | Health apps |
+| `countdownTimerAlert` | Countdown timer | Timer apps |
+| `rapidTapFeedback` | Rapid tap | Quick actions |
+| `dramaticNotification` | Dramatic notification | Important events |
+| `urgentBuzzWave` | Urgent buzz wave | Urgent alerts |
 
-| Platform | Basic Vibration | Amplitude Control | Custom Patterns | Haptic Feedback |
-|----------|----------------|-------------------|-----------------|-----------------|
-| Android  | ✅             | ✅                | ✅              | ❌              |
-| iOS      | ✅             | ❌                | ✅              | ✅              |
-| Web      | ✅             | ❌                | ❌              | ❌              |
-| OpenHarmony | ✅          | ✅                | ✅              | ❌              |
+</details>
 
-## What's Fixed
+---
 
-This package addresses several issues found in the original vibration plugin:
+## 📊 Platform Support
 
-1. **Improved error handling** - Better exception handling and fallbacks
-2. **Enhanced iOS support** - Better haptic feedback integration
-3. **Web compatibility** - Improved web vibration API usage
-4. **Android optimization** - Better vibrator management
-5. **Documentation** - Comprehensive documentation and examples
-6. **Package naming** - Clear, descriptive package names
-7. **Dependency updates** - Updated to latest compatible versions
+| Platform | Basic Vibration | Amplitude Control | Custom Patterns | Haptic Feedback | Status |
+|----------|----------------|-------------------|-----------------|-----------------|--------|
+| **Android** | ✅ | ✅ | ✅ | ❌ | Fully Supported |
+| **iOS** | ✅ | ❌ | ✅ | ✅ | Fully Supported |
+| **Web** | ✅ | ❌ | ❌ | ❌ | Fully Supported |
+| **OpenHarmony** | ✅ | ✅ | ✅ | ❌ | Fully Supported |
 
-## Contributing
+---
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## 🎨 Usage Examples
 
+### Notification App
+
+```dart
+class NotificationService {
+  static Future<void> showSuccessNotification() async {
+    if (await Vibration.hasVibrator()) {
+      await Vibration.vibrate(preset: VibrationPreset.notificationSuccess);
+    }
+  }
+  
+  static Future<void> showErrorNotification() async {
+    if (await Vibration.hasVibrator()) {
+      await Vibration.vibrate(preset: VibrationPreset.notificationError);
+    }
+  }
+}
+```
+
+### Game Feedback
+
+```dart
+class GameController {
+  static Future<void> onPlayerHit() async {
+    await Vibration.vibrate(
+      duration: 200,
+      amplitude: 150,
+    );
+  }
+  
+  static Future<void> onLevelComplete() async {
+    await Vibration.vibrate(preset: VibrationPreset.quickSuccessAlert);
+  }
+}
+```
+
+### Timer App
+
+```dart
+class TimerService {
+  static Future<void> startCountdown() async {
+    for (int i = 5; i > 0; i--) {
+      await Vibration.vibrate(preset: VibrationPreset.countdownTimerAlert);
+      await Future.delayed(Duration(seconds: 1));
+    }
+  }
+}
+```
+
+---
+
+## 🔍 Troubleshooting
+
+<details>
+<summary><strong>❓ Common Issues</strong></summary>
+
+### Vibration not working on Android
+- Ensure `VIBRATE` permission is added to `AndroidManifest.xml`
+- Check if device has a vibrator: `await Vibration.hasVibrator()`
+
+### No haptic feedback on iOS
+- Haptic feedback only works on physical devices, not simulators
+- Ensure device supports haptic feedback
+
+### Web vibration not working
+- Web Vibration API requires user interaction (button click, etc.)
+- Some browsers may not support the API
+
+### Custom patterns not working
+- Check device support: `await Vibration.hasCustomVibrationsSupport()`
+- Ensure pattern format is correct: `[delay, vibrate, delay, vibrate]`
+
+</details>
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+### 🐛 Bug Reports
+1. Check existing [issues](https://github.com/boughdiri-dorsaf/vibration_fixed/issues)
+2. Create a new issue with detailed information
+3. Include device info, Flutter version, and steps to reproduce
+
+### 💡 Feature Requests
+1. Open an issue with the "enhancement" label
+2. Describe the feature and its use case
+3. Provide examples if possible
+
+### 🔧 Code Contributions
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+---
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+---
+
+## 🙏 Acknowledgments
 
 - Original vibration plugin by [Benjamin Dean](https://github.com/benjamindean/flutter_vibration)
 - Flutter team for the excellent platform
 - Community contributors and testers
-
-## Support
-
-If you encounter any issues or have questions, please:
-
-1. Check the [Issues](https://github.com/boughdiri-dorsaf/vibration_fixed/issues) page
-2. Create a new issue with detailed information
-3. Contact the maintainer at boughdiri.dorsaf@gmail.com
+- All the developers who reported issues and suggested improvements
 
 ---
 
-Made with ❤️ by [Boughdiri Dorsaf](https://github.com/boughdiri-dorsaf)
+## 📞 Support
+
+<div align="center">
+
+**Need help? Have questions?**
+
+[![GitHub Issues](https://img.shields.io/badge/GitHub-Issues-blue?logo=github)](https://github.com/boughdiri-dorsaf/vibration_fixed/issues)
+[![Email](https://img.shields.io/badge/Email-boughdiri.dorsaf@gmail.com-red?logo=gmail)](mailto:boughdiri.dorsaf@gmail.com)
+
+**Made with ❤️ by [Boughdiri Dorsaf](https://github.com/boughdiri-dorsaf)**
+
+[⭐ Star this repo](https://github.com/boughdiri-dorsaf/vibration_fixed) • [🐛 Report Bug](https://github.com/boughdiri-dorsaf/vibration_fixed/issues) • [💡 Request Feature](https://github.com/boughdiri-dorsaf/vibration_fixed/issues)
+
+</div>
+
+---
+
+<div align="center">
+
+**If this plugin helped you, please give it a ⭐ star!**
+
+</div>
