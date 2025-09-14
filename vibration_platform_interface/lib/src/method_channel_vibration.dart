@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:vibration_fixed_platform_interface/vibration_platform_interface.dart';
+import '../vibration_platform_interface.dart';
 
 class MethodChannelVibration extends VibrationPlatform {
   /// Method channel to communicate with native code.

@@ -16,7 +16,7 @@ class VibrationFixedWebPlugin {
       const StandardMethodCodec(),
       registrar,
     );
-    final VibrationWebPlugin pluginInstance = VibrationWebPlugin();
+    final VibrationFixedWebPlugin pluginInstance = VibrationFixedWebPlugin();
 
     channel.setMethodCallHandler(pluginInstance.handleMethodCall);
   }

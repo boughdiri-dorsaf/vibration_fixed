@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:vibration_fixed/vibration_presets.dart';
+import 'vibration_presets.dart';
 import 'package:vibration_fixed_platform_interface/vibration_platform_interface.dart';
 
 /// Platform-independent vibration methods.

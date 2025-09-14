@@ -2,6 +2,7 @@ name: vibration_fixed
 description: A fixed plugin for handling Vibration API on iOS, Android, web and OpenHarmony.
 version: 4.0.0
 homepage: https://github.com/boughdiri-dorsaf/vibration_fixed
+publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -11,7 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  vibration_fixed_platform_interface: ^0.1.0
+  vibration_fixed_platform_interface:
+    path: ../vibration_platform_interface
+  vibration_fixed_web:
+    path: ../vibration_web
 
 dev_dependencies:
   flutter_test:
