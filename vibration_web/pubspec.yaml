@@ -1,0 +1,26 @@
+name: vibration_fixed_web
+description: A plugin for handling Vibration API on the Web
+version: 1.6.9
+homepage: https://github.com/boughdiri-dorsaf/vibration_fixed
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  web: ">=0.5.1 <2.0.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      web:
+        pluginClass: VibrationFixedWebPlugin
+        fileName: vibration_fixed_web.dart
