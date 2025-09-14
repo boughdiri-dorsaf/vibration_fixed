@@ -192,13 +192,13 @@ class _VibrationDemoState extends State<VibrationDemo> {
   Widget _buildPresetVibrations() {
     final presets = [
       (VibrationPreset.quickSuccessAlert, 'Quick Success', Icons.check_circle),
-      (VibrationPreset.lightImpact, 'Light Impact', Icons.touch_app),
-      (VibrationPreset.mediumImpact, 'Medium Impact', Icons.pan_tool),
-      (VibrationPreset.heavyImpact, 'Heavy Impact', Icons.handyman),
-      (VibrationPreset.notificationSuccess, 'Success Notification', Icons.notifications),
-      (VibrationPreset.notificationError, 'Error Notification', Icons.error),
+      (VibrationPreset.singleShortBuzz, 'Light Impact', Icons.touch_app),
+      (VibrationPreset.doubleBuzz, 'Medium Impact', Icons.pan_tool),
+      (VibrationPreset.tripleBuzz, 'Heavy Impact', Icons.handyman),
+      (VibrationPreset.softPulse, 'Success Notification', Icons.notifications),
+      (VibrationPreset.emergencyAlert, 'Error Notification', Icons.error),
       (VibrationPreset.heartbeatVibration, 'Heartbeat', Icons.favorite),
-      (VibrationPreset.emergencyAlert, 'Emergency Alert', Icons.warning),
+      (VibrationPreset.urgentBuzzWave, 'Emergency Alert', Icons.warning),
     ];
 
     return _buildSection(
@@ -324,7 +324,8 @@ class _VibrationDemoState extends State<VibrationDemo> {
                 const SizedBox(width: 8),
                 Text(
                   title,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -336,7 +337,8 @@ class _VibrationDemoState extends State<VibrationDemo> {
     );
   }
 
-  Widget _buildVibrationButton(String title, IconData icon, VoidCallback onPressed) {
+  Widget _buildVibrationButton(
+      String title, IconData icon, VoidCallback onPressed) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: SizedBox(

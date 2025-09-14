@@ -137,9 +137,9 @@ await Vibration.vibrate(
 ```dart
 // Use predefined patterns
 await Vibration.vibrate(preset: VibrationPreset.quickSuccessAlert);
-await Vibration.vibrate(preset: VibrationPreset.lightImpact);
-await Vibration.vibrate(preset: VibrationPreset.mediumImpact);
-await Vibration.vibrate(preset: VibrationPreset.heavyImpact);
+await Vibration.vibrate(preset: VibrationPreset.singleShortBuzz);
+await Vibration.vibrate(preset: VibrationPreset.doubleBuzz);
+await Vibration.vibrate(preset: VibrationPreset.tripleBuzz);
 ```
 
 ### Cancel Vibration
@@ -188,13 +188,6 @@ await Vibration.cancel();
 | Preset | Description | Use Case |
 |--------|-------------|----------|
 | `quickSuccessAlert` | Quick success notification | Success feedback |
-| `lightImpact` | Light haptic impact | UI interactions |
-| `mediumImpact` | Medium haptic impact | Important actions |
-| `heavyImpact` | Heavy haptic impact | Critical actions |
-| `selectionClick` | Selection click feedback | Button presses |
-| `notificationSuccess` | Success notification | App notifications |
-| `notificationWarning` | Warning notification | Warning alerts |
-| `notificationError` | Error notification | Error alerts |
 | `singleShortBuzz` | Single short buzz | Simple alerts |
 | `doubleBuzz` | Double buzz pattern | Double confirmation |
 | `tripleBuzz` | Triple buzz pattern | Triple confirmation |
